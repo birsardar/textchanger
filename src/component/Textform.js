@@ -9,18 +9,17 @@ export default function TextForm(props){
 
     const handelDownClick = ()=>{
          let newTest = text.toLowerCase();
-         setText(newTest)
+         setText(newTest);
     }
-    // const handelCamalClick = ()=>{
-    //      let newTest = text.toc
-    //      setText(newTest)
-    // }
+    const handelClearClick = ()=>{
+         setText('');
+    }
 
     const HanldeOnChange = (event)=>{
-        console.log("value changed");
+        // console.log("value changed");
         setText(event.target.value);
     }
-    const [text, setText] = useState('enter text here');
+    const [text, setText] = useState('');
 
     return(
         <>
@@ -30,11 +29,12 @@ export default function TextForm(props){
      </div>
         <button className="btn btn-primary btn-sm mr-3" onClick={handelUpClick}>CONVERT TO UPPER CASE</button>
         <button className="btn btn-primary btn-sm mr-3" onClick={handelDownClick}> CONVERT TO LOWER CASE</button>
-        {/* <button className="btn btn-primary btn-sm mr-3" onClick={handelCamalClick}> CONVERT TO CAMAL CASE</button> */}
+        <button className="btn btn-primary btn-sm mr-3" onClick={handelClearClick}>Clear Text</button>
         <div className="container">
             <h1>Your Text Summery</h1>
             <p> {text.split(" ").length} words and {text.length} characters</p>
-            <h1>Preview</h1>
+            <p> Number Of Sentence {text.split(".").length-1}  </p>
+            <h2>Preview</h2>
         <p>
             {text}
 
