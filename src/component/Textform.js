@@ -23,14 +23,19 @@ export default function TextForm(props){
     const [text, setText] = useState('enter text here');
 
     return(
-    <div>
-     <div className="mb-3">
+        <>
         <h1>{props.heading}</h1>
+     <div className="mb-3">
             <textarea className="form-control" value={text} onChange={HanldeOnChange} id="myBox" rows="10"></textarea>
      </div>
         <button className="btn btn-primary btn-sm mr-3" onClick={handelUpClick}>CONVERT TO UPPER CASE</button>
         <button className="btn btn-primary btn-sm mr-3" onClick={handelDownClick}> CONVERT TO LOWER CASE</button>
         {/* <button className="btn btn-primary btn-sm mr-3" onClick={handelCamalClick}> CONVERT TO CAMAL CASE</button> */}
-    </div>
-    )
+        <div className="container">
+            <h1>Your Text Summery</h1>
+            <p> {text.split(" ").length} words and {text.length} characters</p>
+        </div>
+        </>
+
+    ) 
 }
