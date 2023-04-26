@@ -1,14 +1,28 @@
- import Navbar from "./component/Navbar";
+import Navbar from "./component/Navbar";
+import About from "./component/About";
 import TextForm from "./component/Textform";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+}  from "react-router-dom";
 function App() {
   return (
-    <div>
-    <Navbar/>
-    <div className="container">
-      <TextForm heading="Enter the text analyse"/>
+    <Router>
+      {/* passing title using props to navbar */}
+    <Navbar title="Text Changer" about="About"/>  
+      <div className="container my-3" >
+    <Routes>
+          <Route path="/about"  element={<About />} >
+          </Route>
+          <Route path="/" element={<TextForm heading="Enter the text analyse"/>}>  
+          </Route>
+    </Routes>
+      
     </div>
     
-    </div>
+    </Router>
   );
 }
 

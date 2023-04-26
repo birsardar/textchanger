@@ -11,6 +11,25 @@ export default function TextForm(props){
          let newTest = text.toLowerCase();
          setText(newTest);
     }
+    //to download text in localdevice
+    const handelDownload =()=>{
+        const element = document.createElement("a");
+        const file = new Blob([document.getElementById('myBox').value],    
+        {type: 'text/plain;charset=utf-8'});
+        element.href = URL.createObjectURL(file);
+        element.download = "myFile.txt";
+        document.body.appendChild(element);
+        element.click();
+
+    }
+    //for copy text
+    const handelCopy = ()=>{
+    console.log('text', text)
+    var textField = document.getElementById('myBox')
+    textField.select()
+    navigator.clipboard.writeText(text.value)  
+    }
+    //to clerar text area
     const handelClearClick = ()=>{
          setText('');
     }
@@ -20,6 +39,7 @@ export default function TextForm(props){
         setText(event.target.value);
     }
     const [text, setText] = useState('');
+    
 
     return(
         <>
@@ -29,6 +49,8 @@ export default function TextForm(props){
      </div>
         <button className="btn btn-primary btn-sm mr-3" onClick={handelUpClick}>CONVERT TO UPPER CASE</button>
         <button className="btn btn-primary btn-sm mr-3" onClick={handelDownClick}> CONVERT TO LOWER CASE</button>
+        <button className="btn btn-primary btn-sm mr-3" onClick={handelCopy}>Copy Text</button>
+        <button className="btn btn-primary btn-sm mr-3" onClick={handelDownload}>Download Text</button>
         <button className="btn btn-primary btn-sm mr-3" onClick={handelClearClick}>Clear Text</button>
         <div className="container">
             <h1>Your Text Summery</h1>
