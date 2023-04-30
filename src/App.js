@@ -8,13 +8,15 @@ import {
   Route,
 }  from "react-router-dom";
 function App() {
-  const [mode, setmode] = useState('mode');
+  const [mode, setmode] = useState('light');
   const toggleMode =()=>{
-    if (mode === 'dark'){
-      setmode('light')
+    if (mode === 'light'){
+      setmode('dark');
+      document.body.style.backgroundColor = 'grey';
     }
     else{
-      setmode('dark')
+      setmode('light');
+      document.body.style.backgroundColor = 'white';
     }
 
   }
@@ -26,7 +28,7 @@ function App() {
     <Routes>
           <Route path="/about"  element={<About />} >
           </Route>
-          <Route path="/" element={<TextForm heading="Enter the text analyse"/>}>  
+          <Route path="/" element={<TextForm heading="Enter the text analyse" mode={ mode } toogleMode={toggleMode}/>} >  
           </Route>
     </Routes>
       
