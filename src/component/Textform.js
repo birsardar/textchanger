@@ -43,7 +43,6 @@ export default function TextForm(props){
         setText(event.target.value);
     }
 
-    //single text capital
     const [text, setText] = useState('');
     
 
@@ -60,13 +59,10 @@ export default function TextForm(props){
         <button className="btn btn-primary btn-sm mr-3" onClick={handelClearClick}>Clear Text</button>
         <div className="container">
             <h1>Your Text Summery</h1>
-            <p> {text.split(" ").length} words and {text.length} characters</p>
+            <p>{text.trim() === '' ? 0 : text.match(/\S+/g).length} words   words and {text.length} characters</p>
             <p> Number Of Sentence {text.split(".").length-1}  </p>
             <h2>Preview</h2>
-        <p>
-            {text}
-
-        </p>
+            {text} 
         </div>
         </div>
 
