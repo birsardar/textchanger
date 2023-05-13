@@ -37,6 +37,7 @@ function App() {
   return (
     <Router>
       {/* passing title using props to navbar */}
+
     <Navbar title="Text Changer" about="About" mode={ mode } toogleMode={toggleMode}/>  
     <Alert alert={alert} />
       <div className="container my-3" >
