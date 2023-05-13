@@ -5,11 +5,13 @@ export default function TextForm(props){
     const handelUpClick = ()=>{
          let newTest = text.toUpperCase(); 
          setText(newTest);
+         props.showAlert("Upper Case","success")
     }
 
     const handelDownClick = ()=>{
          let newTest = text.toLowerCase();
          setText(newTest);
+         props.showAlert("Lower Case","success")
     }
     //to download text in localdevice
     const handelDownload =()=>{
@@ -20,14 +22,16 @@ export default function TextForm(props){
         element.download = "myFile.txt";
         document.body.appendChild(element);
         element.click();
-
+        props.showAlert("File Downloaded","success")
     }
+    
     //for copy text
     const handelCopy = ()=>{
     console.log('text', text)
     var textField = document.getElementById('myBox')
     textField.select()
-    navigator.clipboard.writeText(text.value)  
+    navigator.clipboard.writeText(text.valueOf)  
+    props.showAlert("Text Copied","success")
     }
     //to clerar text area
     const handelClearClick = ()=>{
@@ -38,6 +42,8 @@ export default function TextForm(props){
         // console.log("value changed");
         setText(event.target.value);
     }
+
+    //single text capital
     const [text, setText] = useState('');
     
 
