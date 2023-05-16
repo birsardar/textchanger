@@ -52,11 +52,11 @@ export default function TextForm(props){
      <div className="mb-3">
             <textarea className="form-control" style ={{ backgroundColor: props.mode==='dark'?'gray':'white', color: props.mode==='dark'?'white':'black'} } value={text} onChange={HanldeOnChange} id="myBox" rows="10"></textarea>
      </div>
-        <button className="btn btn-primary btn-sm mr-3" onClick={handelUpClick}>CONVERT TO UPPER CASE</button>
-        <button className="btn btn-primary btn-sm mr-3" onClick={handelDownClick}> CONVERT TO LOWER CASE</button>
-        <button className="btn btn-primary btn-sm mr-3" onClick={handelCopy}>Copy Text</button>
-        <button className="btn btn-primary btn-sm mr-3" onClick={handelDownload}>Download Text</button>
-        <button className="btn btn-primary btn-sm mr-3" onClick={handelClearClick}>Clear Text</button>
+        <button className="btn btn-primary btn-sm mx-2 my-2" onClick={handelUpClick}>CONVERT TO UPPER CASE</button>
+        <button className="btn btn-primary btn-sm mx-2 my-2" onClick={handelDownClick}> CONVERT TO LOWER CASE</button>
+        <button className="btn btn-primary btn-sm mx-2 my-2" onClick={handelCopy}>Copy Text</button>
+        <button className="btn btn-primary btn-sm mx-2 my-2" onClick={handelDownload}>Download Text</button>
+        <button className="btn btn-primary btn-sm mx-2 my-2" onClick={handelClearClick}>Clear Text</button>
         <div className="container">
             <h1>Your Text Summery</h1>
             <p>{text.trim() === '' ? 0 : text.match(/\S+/g).length} words   words and {text.length} characters</p>
